@@ -1,0 +1,32 @@
+<div style="height: 80vh;">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon> <!-- Hamburger icon -->
+      </button>
+      <span>Dashboard</span>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+        <a routerLink="/" mat-button (click)="logout()">Logout</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxLayout="row" fxLayoutAlign="start start">
+    <!-- Sidenav with responsive layout -->
+    <mat-sidenav #sidenav mode="side" [opened]="sidenavOpened" fxHide.lt-md>
+  
+      <mat-nav-list fxLayout="column">
+        <a routerLink="/dashboard" mat-list-item>Dashboard</a>
+        <a routerLink="/user-data" mat-list-item>Users</a>
+        <a routerLink="/vehicle-data" mat-list-item>Vehicles</a>
+        <a routerLink="/" mat-list-item (click)="logout()">Logout</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Sidenav Content -->
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

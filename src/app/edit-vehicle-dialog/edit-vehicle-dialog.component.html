@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Edit Vehicle</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Make</mat-label>
+    <input matInput [(ngModel)]="vehicle.make" />
+     
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Model</mat-label>
+    <input matInput [(ngModel)]="vehicle.model" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

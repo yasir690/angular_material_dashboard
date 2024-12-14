@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+
+.sidebar {
+    position: fixed; /* Fixed position if it's floating */
+    z-index: 1000; /* Ensure this is higher than other content */
+  }

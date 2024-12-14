@@ -1,0 +1,14 @@
+button.mat-icon-button {
+    margin-right: 8px;
+  }
+  
+  mat-icon {
+    font-size: 20px;
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Adjust the height as needed */
+  }

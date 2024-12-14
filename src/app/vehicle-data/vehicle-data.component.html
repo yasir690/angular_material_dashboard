@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Vehicle Data</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <!-- Show loader while data is loading -->
+    <div *ngIf="loading" class="loading-container">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <!-- Show the table only after data is loaded -->
+    <div *ngIf="!loading">
+      <table mat-table [dataSource]="vehicles" class="mat-elevation-z8">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>vehicle Type</th>
+          <td mat-cell *matCellDef="let vehicles">{{ vehicles.vehicleType }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="make">
+          <th mat-header-cell *matHeaderCellDef>Make</th>
+          <td mat-cell *matCellDef="let vehicles">{{ vehicles.make }}</td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="model">
+          <th mat-header-cell *matHeaderCellDef>Model</th>
+          <td mat-cell *matCellDef="let vehicles">{{ vehicles.model }}</td>
+        </ng-container>
+
+        <!-- Action Column (Edit/Delete) -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let vehicle">
+            <button mat-icon-button (click)="editVehicle(vehicle)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteVehicle(vehicle)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <!-- Header and Rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
